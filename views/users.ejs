@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Список користувачів</title><link rel="icon" href="/favicon.ico"></head>
+<body>
+  <h1>Користувачі з MongoDB:</h1>
+  <ul>
+    <% users.forEach(user => { %>
+      <li><%= user.email %> | Зареєстровано: <%= user.createdAt.toLocaleString() %></li>
+    <% }) %>
+  </ul>
+  <a href="/protected">Назад</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "passport-local-mongo-ejs-project",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.2",
+    "mongodb": "^6.18.0",
+    "mongoose": "^7.6.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  }
+}
