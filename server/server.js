@@ -11,6 +11,7 @@ import cookieParser from 'cookie-parser';
 import User from './models/User.js';
 import dotenv from 'dotenv';
 import itemRoutes from './routes/items.js';
+import cors from 'cors';
 
 
 
@@ -21,6 +22,10 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+}));
 
 const PORT = 3000;
 
@@ -36,6 +41,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/items', itemRoutes);
+
+
 
 
 app.use(session({

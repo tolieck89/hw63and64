@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+    networks:
+      - appnet
+
+  server:
+    build: ./server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server:/app
+    env_file:
+      - ./server/.env
+    depends_on:
+      - mongo
+    networks:
+      - appnet
+
+  client:
+    build: ./client
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./client:/app
+    depends_on:
+      - server
+    networks:
+      - appnet
+
+volumes:
+  mongodata:
+
+networks:
+  appnet:
